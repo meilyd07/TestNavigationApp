@@ -15,6 +15,7 @@
 		6A466CC4227B91F600667650 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A466CC3227B91F600667650 /* FirstViewController.m */; };
 		6A466CC7227B920900667650 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A466CC6227B920900667650 /* SecondViewController.m */; };
 		6A466CCE227BB26000667650 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A466CCD227BB26000667650 /* ThirdViewController.m */; };
+		6A6226F62292201800F88FC1 /* HAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A6226F52292201800F88FC1 /* HAViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,8 @@
 		6A466CCB227BA0D700667650 /* NavigationProtocolDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationProtocolDelegate.h; sourceTree = "<group>"; };
 		6A466CCC227BB26000667650 /* ThirdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
 		6A466CCD227BB26000667650 /* ThirdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		6A6226F42292201800F88FC1 /* HAViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAViewController.h; sourceTree = "<group>"; };
+		6A6226F52292201800F88FC1 /* HAViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,8 +53,8 @@
 		6A466C9E227B7D1B00667650 = {
 			isa = PBXGroup;
 			children = (
-				6A466CA9227B7D1C00667650 /* TestNavigationApp */,
 				6A466CA8227B7D1C00667650 /* Products */,
+				6A466CA9227B7D1C00667650 /* TestNavigationApp */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,20 +70,22 @@
 			isa = PBXGroup;
 			children = (
 				6A466CAA227B7D1C00667650 /* AppDelegate.h */,
-				6A466CC5227B920900667650 /* SecondViewController.h */,
-				6A466CCC227BB26000667650 /* ThirdViewController.h */,
-				6A466CCD227BB26000667650 /* ThirdViewController.m */,
-				6A466CC6227B920900667650 /* SecondViewController.m */,
+				6A466CAB227B7D1C00667650 /* AppDelegate.m */,
+				6A466CB3227B7D1D00667650 /* Assets.xcassets */,
+				6A6226F42292201800F88FC1 /* HAViewController.h */,
+				6A6226F52292201800F88FC1 /* HAViewController.m */,
 				6A466CC2227B91F600667650 /* FirstViewController.h */,
 				6A466CC3227B91F600667650 /* FirstViewController.m */,
-				6A466CAB227B7D1C00667650 /* AppDelegate.m */,
-				6A466CAD227B7D1C00667650 /* MyNavigationViewController.h */,
-				6A466CC0227B884C00667650 /* LaunchScreen.storyboard */,
-				6A466CAE227B7D1C00667650 /* MyNavigationViewController.m */,
-				6A466CB3227B7D1D00667650 /* Assets.xcassets */,
 				6A466CB8227B7D1D00667650 /* Info.plist */,
+				6A466CC0227B884C00667650 /* LaunchScreen.storyboard */,
 				6A466CB9227B7D1D00667650 /* main.m */,
+				6A466CAD227B7D1C00667650 /* MyNavigationViewController.h */,
+				6A466CAE227B7D1C00667650 /* MyNavigationViewController.m */,
 				6A466CCB227BA0D700667650 /* NavigationProtocolDelegate.h */,
+				6A466CC5227B920900667650 /* SecondViewController.h */,
+				6A466CC6227B920900667650 /* SecondViewController.m */,
+				6A466CCC227BB26000667650 /* ThirdViewController.h */,
+				6A466CCD227BB26000667650 /* ThirdViewController.m */,
 			);
 			path = TestNavigationApp;
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 				6A466CC7227B920900667650 /* SecondViewController.m in Sources */,
 				6A466CAF227B7D1C00667650 /* MyNavigationViewController.m in Sources */,
 				6A466CCE227BB26000667650 /* ThirdViewController.m in Sources */,
+				6A6226F62292201800F88FC1 /* HAViewController.m in Sources */,
 				6A466CBA227B7D1D00667650 /* main.m in Sources */,
 				6A466CAC227B7D1C00667650 /* AppDelegate.m in Sources */,
 				6A466CC4227B91F600667650 /* FirstViewController.m in Sources */,

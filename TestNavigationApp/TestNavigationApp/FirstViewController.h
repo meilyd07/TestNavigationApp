@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NavigationProtocolDelegate.h"
+#import "HAViewController.h"
 
-@interface FirstViewController : UIViewController<NavigationProtocol>
-@property (nonatomic,weak) id<NavigationProtocolDelegate> flowDelegate;
+@interface FirstViewController : HAViewController
 @end

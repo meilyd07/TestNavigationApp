@@ -7,6 +7,7 @@
 //
 
 #import "MyNavigationViewController.h"
+#import "HAViewController.h"
 
 @interface MyNavigationViewController ()
 @property (nonatomic, retain, readwrite) NSMutableArray *childViewControllers;
@@ -35,7 +36,7 @@
     [self.backButton setBackgroundImage:backImage forState:UIControlStateNormal];
     
     [self.backButton addTarget:self action:@selector(pressBack)
-         forControlEvents:UIControlEventTouchUpInside];
+              forControlEvents:UIControlEventTouchUpInside];
     [self.backButton setShowsTouchWhenHighlighted:YES];
     [self.view addSubview:self.backButton];
 }
@@ -45,39 +46,42 @@
     NSLog(@"Print back");
 }
 
-- (void)popViewController {
-    if (self.childViewControllers.count > 0) {
-        UIViewController *vc = [self.childViewControllers lastObject];
-        [vc willMoveToParentViewController:nil];
-        [vc.view removeFromSuperview];
-        [vc removeFromParentViewController];
-        [self.childViewControllers removeLastObject];
-        if (self.childViewControllers.count > 0) {
-            UIViewController *previous = [self.childViewControllers lastObject];
-            [self addChildViewController:previous];
-            [previous.view setFrame:CGRectMake(0.0f, 70.0f, self.view.bounds.size.width, self.view.bounds.size.height - 60.0)];
-            [self.view addSubview:previous.view];
-            [previous didMoveToParentViewController:self];
-        }
-    }
-    [self.backButton setHidden:!(self.childViewControllers.count > 1)];
-}
-
-- (void)pushViewController:(UIViewController<NavigationProtocol>*)viewController {
-    //remove previous
+- (void)removeLastViewController {
     UIViewController *vc = [self.childViewControllers lastObject];
     [vc willMoveToParentViewController:nil];
     [vc.view removeFromSuperview];
     [vc removeFromParentViewController];
+}
 
-    viewController.flowDelegate = self;
-    
+- (void)setCurrentViewController: (HAViewController *) viewController {
     [self addChildViewController:viewController];
     [viewController.view setFrame:CGRectMake(0.0f, 70.0f, self.view.bounds.size.width, self.view.bounds.size.height - 60.0)];
     [self.view addSubview:viewController.view];
     [viewController didMoveToParentViewController:self];
+}
+
+- (void)popViewController {
+    if (self.childViewControllers.count > 0) {
+        [self removeLastViewController];
+        
+        [self.childViewControllers removeLastObject];
+        
+        if (self.childViewControllers.count > 0) {
+            HAViewController *previous = [self.childViewControllers lastObject];
+            [self setCurrentViewController:previous];
+        }
+    }
+    [self.backButton setHidden: !(self.childViewControllers.count > 1)];
+}
+
+- (void)pushViewController:(HAViewController *)viewController {
+    //remove previous
+    [self removeLastViewController];
+    viewController.flowDelegate = self;
+    [self setCurrentViewController:viewController];
     [self.childViewControllers addObject:viewController];
     [self.backButton setHidden:!(self.childViewControllers.count > 1)];
 }
+
 
 @end

@@ -12,8 +12,3 @@
 @required
 - (void)pushViewController:(UIViewController*)viewController;
 @end
-
-@protocol NavigationProtocol
-@required
-@property (nonatomic,weak) id<NavigationProtocolDelegate> flowDelegate;
-@end

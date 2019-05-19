@@ -6,9 +6,10 @@
 //  Copyright © 2019 None. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "NavigationProtocolDelegate.h"
 
-@interface ThirdViewController : UIViewController<NavigationProtocol>
-@property (nonatomic,weak) id<NavigationProtocolDelegate> flowDelegate;
+#import <UIKit/UIKit.h>
+#import "HAViewController.h"
+
+@interface ThirdViewController : HAViewController
 @end
+
