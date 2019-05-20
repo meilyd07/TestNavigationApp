@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "NavigationProtocolDelegate.h"
+#import "NavigationView.h"
 
 @interface MyNavigationViewController : UIViewController<NavigationProtocolDelegate>
-@property (nonatomic, retain) NSString *titleView;
 @property (nonatomic, retain, readonly) NSMutableArray *childViewControllers;
 
 - (void)popViewController;

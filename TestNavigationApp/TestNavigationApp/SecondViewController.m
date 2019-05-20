@@ -18,7 +18,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Second view controller";
-    // Do any additional setup after loading the view.
     CGRect labelFrame = CGRectMake(40,40,200,44);
     UILabel *dateLabel = [[UILabel alloc] initWithFrame:labelFrame];
     NSDateFormatter *format = [[[NSDateFormatter alloc] init] autorelease];

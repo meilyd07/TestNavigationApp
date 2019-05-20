@@ -8,19 +8,22 @@
 
 #import "MyNavigationViewController.h"
 #import "HAViewController.h"
+#import "NavigationView.h"
 
 @interface MyNavigationViewController ()
 @property (nonatomic, retain, readwrite) NSMutableArray *childViewControllers;
-@property (nonatomic, retain) UIButton *backButton;
+@property (nonatomic, retain) NavigationView *navigationView;
+@property (nonatomic, retain) NSString *titleView;
 @end
 
 @implementation MyNavigationViewController
 
-@synthesize backButton;
+@synthesize navigationView;
+@synthesize titleView;
 
 - (void)dealloc
 {
-    self.backButton = nil;
+    self.navigationView = nil;
     self.childViewControllers = nil;
     [super dealloc];
 }
@@ -28,23 +31,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.childViewControllers = [[NSMutableArray alloc] init];
-    
-    UIImage* backImage = [UIImage imageNamed:@"back.png"];
-    CGRect frame = CGRectMake(15,35, 25,25);
-    
-    self.backButton = [[UIButton alloc] initWithFrame:frame];
-    [self.backButton setBackgroundImage:backImage forState:UIControlStateNormal];
-    
-    [self.backButton addTarget:self action:@selector(pressBack)
-              forControlEvents:UIControlEventTouchUpInside];
-    [self.backButton setShowsTouchWhenHighlighted:YES];
-    [self.view addSubview:self.backButton];
+    self.navigationView = [[NavigationView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 70) /*andTitle:titleView*/];
+    [self.view addSubview:self.navigationView];
+    //[navigationView release];
 }
 
-- (void)pressBack {
-    [self popViewController];
-    NSLog(@"Print back");
-}
+//- (void)pressBack {
+//    [self popViewController];
+//    NSLog(@"Print back");
+//}
 
 - (void)removeLastViewController {
     UIViewController *vc = [self.childViewControllers lastObject];
@@ -58,20 +53,19 @@
     [viewController.view setFrame:CGRectMake(0.0f, 70.0f, self.view.bounds.size.width, self.view.bounds.size.height - 60.0)];
     [self.view addSubview:viewController.view];
     [viewController didMoveToParentViewController:self];
+    [self.navigationView setTitle:viewController.title];
 }
 
 - (void)popViewController {
     if (self.childViewControllers.count > 0) {
         [self removeLastViewController];
-        
         [self.childViewControllers removeLastObject];
-        
         if (self.childViewControllers.count > 0) {
             HAViewController *previous = [self.childViewControllers lastObject];
             [self setCurrentViewController:previous];
         }
     }
-    [self.backButton setHidden: !(self.childViewControllers.count > 1)];
+    [self.navigationView showBackButton:!(self.childViewControllers.count > 1)];
 }
 
 - (void)pushViewController:(HAViewController *)viewController {
@@ -80,7 +74,7 @@
     viewController.flowDelegate = self;
     [self setCurrentViewController:viewController];
     [self.childViewControllers addObject:viewController];
-    [self.backButton setHidden:!(self.childViewControllers.count > 1)];
+    [self.navigationView showBackButton:!(self.childViewControllers.count > 1)];
 }
 
 

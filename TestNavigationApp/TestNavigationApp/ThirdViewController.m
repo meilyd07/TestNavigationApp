@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"Third view controller";
     self.view.backgroundColor = [UIColor grayColor];
 }
 
