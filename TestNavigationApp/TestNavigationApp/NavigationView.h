@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+typedef void (^VoidBlock)(void);
 
 @interface NavigationView : UIView
+{
+        VoidBlock handler;
+}
+
+@property(readwrite, copy) VoidBlock handler;
 - (void)showBackButton:(BOOL)hidden;
 - (void)setTitle:(NSString *)stringText;
 @end

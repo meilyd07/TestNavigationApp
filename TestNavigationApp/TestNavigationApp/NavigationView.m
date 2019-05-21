@@ -14,6 +14,7 @@
 @end
 
 @implementation NavigationView
+@synthesize handler;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -41,6 +42,7 @@
 {
     self.backButton = nil;
     self.titleLabel = nil;
+    [handler release];
     [super dealloc];
 }
 
@@ -53,7 +55,7 @@
 }
 
 - (void)pressBack {
-    //[self popViewController];
+    handler();
     NSLog(@"Print back");
 }
 

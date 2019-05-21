@@ -31,15 +31,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.childViewControllers = [[NSMutableArray alloc] init];
-    self.navigationView = [[NavigationView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 70) /*andTitle:titleView*/];
+    self.navigationView = [[NavigationView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 70)];
+    self.navigationView.handler = ^
+    {
+        [self popViewController];
+    };
     [self.view addSubview:self.navigationView];
     //[navigationView release];
 }
-
-//- (void)pressBack {
-//    [self popViewController];
-//    NSLog(@"Print back");
-//}
 
 - (void)removeLastViewController {
     UIViewController *vc = [self.childViewControllers lastObject];
